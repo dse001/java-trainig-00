@@ -1,9 +1,8 @@
 package org.dse;
 
 
+import org.dse.pageObjects.UserPageObject.UserPage;
 import org.json.simple.parser.ParseException;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.WebDriver;
 
@@ -17,10 +16,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class App
 {
+    private UserPage userPage;
+    private SetupData setupData;
+    private Map<String, String> settings;
+    private WebDriver driver;
+    private App(){
+        this.userPage = userPage;
+    }
 
     public static void main( String[] args ) throws IOException, ParseException, InterruptedException {
         SetupData setupData = new SetupData();
-
+/*    public static void main( String[] args ) throws IOException, ParseException, InterruptedException {
+        SetupData setupData = new SetupData(); */
 
 
         Map<String, String> settings = setupData.getSettings();
@@ -28,7 +35,7 @@ public class App
         System.out.println(outLog);
         System.setProperty("webdriver.gecko.driver", settings.get("pathToDriver"));
         WebDriver driver = new FirefoxDriver();
-        UserPage userPage = new UserPage(driver);
+        //UserPage userPage = new UserPage(driver);
         driver.manage().timeouts().implicitlyWait(5000,
                 TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(10000,
@@ -38,9 +45,9 @@ public class App
         driver.manage().timeouts().setScriptTimeout(5000,
                 TimeUnit.MILLISECONDS);
         driver.get(settings.get("baseUrl"));
-        UserPage basePage = new UserPage(driver);
-        basePage.clickOnRepo();
-        basePage.fullRepoSearchField("java");
+      //  UserPage basePage = new UserPage(driver);
+   //     basePage.clickOnRepo();
+    //    basePage.fullRepoSearchField("java\n");
         //basePage.leftBurger.click();
         //basePage.closeLeftMenu.click();
         //WebElement repositories = driver.findElement(By.xpath("*//a[@class='UnderlineNav-item js-responsive-underlinenav-item js-selected-navigation-item']"));
@@ -53,4 +60,5 @@ public class App
         Thread.sleep(7000);
         driver.quit();
     }
+
 }
