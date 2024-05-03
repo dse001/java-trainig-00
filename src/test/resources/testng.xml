@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="test-suite-for-dse-java-training00">
+    <test name="loginPageTest">
+        <classes>
+            <class name="org.dse.loginPageTests.LoginPageTests"/>
+        </classes>
+    </test>
+    <test name="SearchRepoPageTest">
+        <classes>
+            <class name="org.dse.usersPageTests.UserPageTest"/>
+        </classes>
+    </test>
+</suite>

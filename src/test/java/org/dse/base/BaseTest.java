@@ -2,6 +2,7 @@ package org.dse.base;
 
 import org.dse.common.CommonActions;
 import org.dse.pageObjects.BasePageObject.BasePage;
+import org.dse.pageObjects.LoginPageObject.LoginPage;
 import org.dse.pageObjects.UserPageObject.UserPage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,8 @@ public class BaseTest  {
     protected WebDriver driver = CommonActions.driverCreator();
     protected BasePage basePage = new BasePage(driver);
     protected UserPage userPage = new UserPage(driver);
+    protected LoginPage loginPage = new LoginPage(driver);
+
     protected String baseUrl =BASE_URL;
     @AfterTest
     public void cleanCooke (){
